@@ -47,38 +47,43 @@ export const Projects = () => {
               commodo et ipsum voluptate mollit do id nulla. Occaecat incididunt
               nulla ut reprehenderit ea id sunt velit.
             </p>
-            <Tab.Container id="projects-tabs" defaultActiveKey="first">
-              <Tabs
-                id="controlled-tab-example"
-                activeKey={key}
-                onSelect={k => setKey(k)}
-                className="mb-3"
+
+            <Tabs
+              id="projects-tabs"
+              activeKey={key}
+              onSelect={k => setKey(k)}
+              className="mb-3"
+              defaultActiveKey="first"
+            >
+              <Tab
+                eventKey="first"
+                title="first"
+                className="nav-pills justify-center items-center"
+                id="pills-tab"
               >
-                <Tab eventKey="first" title="Project-one">
-                  <Row>
-                    {projects.map((project, index) => {
-                      return <ProjectCard key={index} {...project} />;
-                    })}
-                  </Row>
-                </Tab>
-                <Tab eventKey="second" title="Project-two">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cumque quam, quod neque provident velit, rem explicabo
-                    excepturi id illo molestiae blanditiis, eligendi dicta
-                    officiis asperiores delectus quasi inventore debitis quo.
-                  </p>
-                </Tab>
-                <Tab eventKey="third" title="Project-three">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Cumque quam, quod neque provident velit, rem explicabo
-                    excepturi id illo molestiae blanditiis, eligendi dicta
-                    officiis asperiores delectus quasi inventore debitis quo.
-                  </p>
-                </Tab>
-              </Tabs>
-            </Tab.Container>
+                <Row>
+                  {projects.map((project, index) => {
+                    return <ProjectCard key={index} {...project} />;
+                  })}
+                </Row>
+              </Tab>
+              <Tab eventKey="second" title="second">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Cumque quam, quod neque provident velit, rem explicabo
+                  excepturi id illo molestiae blanditiis, eligendi dicta
+                  officiis asperiores delectus quasi inventore debitis quo.
+                </p>
+              </Tab>
+              <Tab eventKey="third" title="third">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Cumque quam, quod neque provident velit, rem explicabo
+                  excepturi id illo molestiae blanditiis, eligendi dicta
+                  officiis asperiores delectus quasi inventore debitis quo.
+                </p>
+              </Tab>
+            </Tabs>
           </Col>
         </Row>
       </Container>
