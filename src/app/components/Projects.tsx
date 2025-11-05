@@ -36,7 +36,7 @@ const projects = [
 ];
 
 export const Projects = () => {
-  const [key, setKey] = useState('home');
+  const [key, setKey] = useState<string>('home');
 
   return (
     <section className="project" id="projects">
@@ -55,7 +55,7 @@ export const Projects = () => {
             <Tabs
               id="projects-tabs"
               activeKey={key}
-              onSelect={k => setKey(k)}
+              onSelect={k => setKey(k as string)}
               className="mb-3"
               defaultActiveKey="first"
             >
