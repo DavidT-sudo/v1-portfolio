@@ -27,6 +27,25 @@ function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setButtonText('Sending...');
+
+    const response = await fetch('http://localhost:5000/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/json;charset=utf-8',
+      },
+      body: JSON.stringify(formDetails),
+    });
+    setButtonText('Send');
+    const result = response.json();
+    setFormDetails(formInitDetails);
+    if (result.code == 200) {
+      setStatus({ success: true, message: 'Message sent successfully' });
+    } else {
+      setStatus({
+        success: false,
+        message: 'Something went wrong, Please try again later',
+      });
+    }
   };
 
   return (

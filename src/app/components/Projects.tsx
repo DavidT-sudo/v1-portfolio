@@ -14,21 +14,24 @@ import TrackVisibility from 'react-on-screen';
 const projects = [
   {
     id: 1,
-    name: 'Project One',
-    description: 'Description for project one',
-    imgUrl: projImg1,
+    name: 'Full Stack Development',
+    description:
+      'Built responsive web applications using React/Next.js with modern UI/UX principles. Implemented backend services with Node.js and Django.',
+    imgUrl: '/images/project-img1.png',
   },
   {
     id: 2,
-    name: 'Project Two',
-    description: 'Description for project two',
-    imgUrl: projImg2,
+    name: 'Industrial Automation',
+    description:
+      'Developed SCADA systems and PLC programming using ladder logic and C. Implemented industrial network solutions.',
+    imgUrl: '/images/project-img2.png',
   },
   {
     id: 3,
-    name: 'Project Three',
-    description: 'Description for project three',
-    imgUrl: projImg3,
+    name: 'Data Analysis Systems',
+    description:
+      'Created data-driven solutions using Python, Django, and various data visualization libraries including D3.js, NumPy, and Pandas.',
+    imgUrl: '/images/project-img3.png',
   },
 ];
 
@@ -42,10 +45,11 @@ export const Projects = () => {
           <Col>
             <h2>My Projects</h2>
             <p>
-              Exercitation occaecat consequat irure fugiat anim consequat
-              aliquip occaecat ut non in. Sint pariatur tempor fugiat esse Lorem
-              commodo et ipsum voluptate mollit do id nulla. Occaecat incididunt
-              nulla ut reprehenderit ea id sunt velit.
+              With a unique blend of mechatronics engineering and software
+              development expertise, I've worked on diverse projects ranging
+              from industrial automation to full-stack web applications. My work
+              demonstrates a commitment to creating efficient, user-focused
+              solutions that solve real-world problems.
             </p>
 
             <Tabs

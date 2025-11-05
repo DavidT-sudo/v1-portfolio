@@ -6,7 +6,11 @@ import Image from 'next/image';
 import headerImg from '../assets/images/header-img.svg';
 
 export default function Banner() {
-  const toRotate = ['web developer', 'web designer', 'UI/UX designer'];
+  const toRotate = [
+    'Full Stack Developer',
+    'Systems Engineer',
+    'Mechatronics Engineer',
+  ];
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
@@ -22,9 +26,9 @@ export default function Banner() {
   }, [text]);
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
+    const i = loopNum % toRotate.length;
+    const fullText = toRotate[i];
+    const updatedText = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
 
@@ -44,20 +48,21 @@ export default function Banner() {
   };
 
   return (
-    <section className="banner bg-amber-500" id="home">
+    <section className="banner" id="home">
       <Container>
         <Row className="items-center">
           <Col xs={12} md={6} xl={7}>
-            <span className="tagline">Welcome to my website</span>
+            <span className="tagline">Welcome to my Portfolio</span>
             <h1>
-              {"Hi I'm webcoded"}
+              {"Hi, I'm David\nI am a "}
               <span className="wrap">{text}</span>
             </h1>
             <p>
-              Non quis non sint deserunt officia reprehenderit ipsum eiusmod
-              Lorem labore officia ullamco. Veniam ut ea ullamco reprehenderit
-              exercitation enim id commodo pariatur culpa. Mollit reprehenderit
-              laborum eiusmod adipisicing.
+              A passionate Software Engineer with a background in Mechatronics
+              and Industrial Instrumentation. I combine engineering principles
+              with modern web technologies to build efficient, scalable
+              applications. Experienced in full-stack development, systems
+              engineering, and industrial automation.
             </p>
             <button onClick={() => console.log('Connect')}>
               Let&apos;s Connect

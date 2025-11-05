@@ -27,19 +27,19 @@ const responsive = {
 
 export const Skills = () => {
   return (
-    <section className="skill bg-blue-500" id="skills">
+    <section className="skill" id="skills">
       <Container>
         <Row>
           <Col>
             <div className="skill-bx">
-              <h2>Skills</h2>
+              <h2>Technical Skills</h2>
               <p>
-                Dolore dolor aliqua et velit quis veniam sit veniam commodo
-                elit. Id cupidatat nostrud sit sint dolore velit do labore nisi
-                officia elit proident consectetur. Adipisicing commodo et
-                consequat veniam reprehenderit. Culpa ex ipsum proident eu ea
-                dolor dolore ullamco dolor. Lorem labore nulla eu tempor.
-                Pariatur in amet duis anim sit ex.
+                Experienced full-stack developer with expertise in modern web
+                technologies and industrial automation. Proficient in both
+                front-end and back-end development, with a strong foundation in
+                systems engineering. Skilled in developing scalable
+                applications, implementing CI/CD pipelines, and utilizing cloud
+                technologies.
               </p>
               <Carousel
                 responsive={responsive}
