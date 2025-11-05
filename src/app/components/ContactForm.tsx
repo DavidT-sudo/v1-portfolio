@@ -17,12 +17,12 @@ function ContactForm() {
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState<{ success: boolean; message: string }>();
 
-  const onFormUpdate = (category: string, value: string) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
+  // const onFormUpdate = (category: string, value: string) => {
+  //   setFormDetails({
+  //     ...formDetails,
+  //     [category]: value,
+  //   });
+  // };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

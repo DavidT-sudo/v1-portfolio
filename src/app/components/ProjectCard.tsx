@@ -4,7 +4,7 @@ import Image, { StaticImageData } from 'next/image';
 interface ProjectCardProps {
   name: string;
   description: string;
-  imgUrl: StaticImageData;
+  imgUrl: StaticImageData | string;
 }
 
 export const ProjectCard = ({

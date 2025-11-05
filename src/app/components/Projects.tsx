@@ -4,12 +4,12 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { Col, Container, Row } from 'react-bootstrap';
 import { ProjectCard } from './ProjectCard';
-import projImg1 from '@/app/assets/images/project-img1.png';
-import projImg2 from '@/app/assets/images/project-img2.png';
-import projImg3 from '@/app/assets/images/project-img3.png';
-import colorSharp2 from '../assets/img/color-sharp2.png';
+// import projImg1 from '@/app/assets/images/project-img1.png';
+// import projImg2 from '@/app/assets/images/project-img2.png';
+// import projImg3 from '@/app/assets/images/project-img3.png';
+// import colorSharp2 from '../assets/img/color-sharp2.png';
 import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+// import TrackVisibility from 'react-on-screen';
 
 const projects = [
   {
@@ -46,10 +46,10 @@ export const Projects = () => {
             <h2>My Projects</h2>
             <p>
               With a unique blend of mechatronics engineering and software
-              development expertise, I've worked on diverse projects ranging
-              from industrial automation to full-stack web applications. My work
-              demonstrates a commitment to creating efficient, user-focused
-              solutions that solve real-world problems.
+              development expertise, I&apos;ve worked on diverse projects
+              ranging from industrial automation to full-stack web applications.
+              My work demonstrates a commitment to creating efficient,
+              user-focused solutions that solve real-world problems.
             </p>
 
             <Tabs

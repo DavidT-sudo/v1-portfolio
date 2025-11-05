@@ -9,7 +9,7 @@ import navIcon1 from '@/app/assets/images/linkedin-icon-svgrepo-com.svg';
 import navIcon2 from '@/app/assets/images/facebook-1-svgrepo-com.svg';
 import navIcon3 from '@/app/assets/images/instagram-color-svgrepo-com.svg';
 import { Button } from 'react-bootstrap';
-import { HashLink } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 
 function NavBar() {
   const [activeLink, setActiveLink] = useState('home');
