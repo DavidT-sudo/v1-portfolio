@@ -17,12 +17,12 @@ function ContactForm() {
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState<{ success: boolean; message: string }>();
 
-  const onFormUpdate = (category: string, value: string) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
+  // const onFormUpdate = (category: string, value: string) => {
+  //   setFormDetails({
+  //     ...formDetails,
+  //     [category]: value,
+  //   });
+  // };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,9 +36,9 @@ function ContactForm() {
       body: JSON.stringify(formDetails),
     });
     setButtonText('Send');
-    const result = response.json();
+    const result: Response = await response.json();
     setFormDetails(formInitDetails);
-    if (result.code == 200) {
+    if (result?.status == 200) {
       setStatus({ success: true, message: 'Message sent successfully' });
     } else {
       setStatus({
