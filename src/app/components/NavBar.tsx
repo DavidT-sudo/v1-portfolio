@@ -41,7 +41,7 @@ function NavBar() {
             src={logo}
             alt="Logo"
             width={150}
-            height={50}
+            height={35}
             className="object-fill"
           />
         </Navbar.Brand>
