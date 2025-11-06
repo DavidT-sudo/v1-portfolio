@@ -20,9 +20,11 @@
 }
 
 :root {
-  /* --background: #ffffff; */
-  --foreground: #171717;
-}
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --background2: #121212;
+    --foreground2: #ffffff;
+  }
 
 * {
   margin: 0;
@@ -38,9 +40,8 @@ html {
 }
 
   body {
-    
-    background-color: #121212;
-    color: #fff !important;
+    background-color: var(--background2);
+    color: var(--foreground2) !important;
   }
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ededed; 
   }
 }
 
@@ -67,7 +68,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  /* background: var(--background); */
+  background: var(--background);
   color: var(--foreground);
   font-family: "Centra", "sans-serif", "Arial", "Helvetica", "sans-serif" !important;
 }
@@ -76,31 +77,34 @@ body {
 
 /************ Navbar Css ************/
 nav.navbar {
-  padding: 18px 0;
+  padding: 0px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 9999;
   transition:  0.32s ease-in-out;
+  color: var(--foreground2) !important;
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: var(--background2);
+  color: var(--foreground2) !important;
 }
 nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #fff !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
+  padding: 0 0px;
   font-size: 18px;
   opacity: 0.75;
+  color: var(--foreground2) !important;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;
+    color: var(--foreground2) !important;
 }
 span.navbar-text {
     display: flex;
@@ -224,9 +228,36 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
 
+/* Navbar Link Styles with high specificity */
+nav.navbar .navbar-nav .nav-link.navbar-Link {
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px;
+  font-size: 18px;
+  opacity: 0.75;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Active state */
+nav.navbar .navbar-nav a.nav-link.active.navbar-Link {
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* Hover state */
+nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
+  color: #fff !important;
+  opacity: 1;
+}
+
+/* Social icons color override */
+.navbar-text.svg a {
+  color: #fff !important;
+}
+
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0;
+  padding: 0 0 40px 0;
   position: relative;
   background-image: url('./assets/images/banner-bg.png');
   background-position: center;
@@ -283,7 +314,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
-  padding: 260px 0 100px 0;
+  padding: 140px 0 100px 0;
   background-image: url('./assets/images/banner-bg.png');
   background-position: top center;
   background-size: cover;

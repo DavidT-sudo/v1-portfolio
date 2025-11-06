@@ -36,13 +36,13 @@ const projects = [
 ];
 
 export const Projects = () => {
-  const [key, setKey] = useState<string>('home');
+  const [key, setKey] = useState<string>('first');
 
   return (
     <section className="project" id="projects">
       <Container>
         <Row>
-          <Col>
+          <Col className="flex flex-col items-center max-w-full">
             <h2>My Projects</h2>
             <p>
               With a unique blend of mechatronics engineering and software
