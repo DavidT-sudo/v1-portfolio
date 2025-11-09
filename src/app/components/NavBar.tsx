@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'next/image';
-import logo from '@/app/assets/images/vecteezy_abstract-tech-logo-design-vector-illustration_19511172.svg';
+import logo from '@/app/assets/images/OmerohmLogo.svg';
 import navIcon1 from '@/app/assets/images/linkedin-icon-svgrepo-com.svg';
 import navIcon2 from '@/app/assets/images/facebook-1-svgrepo-com.svg';
 import navIcon3 from '@/app/assets/images/instagram-color-svgrepo-com.svg';
@@ -43,7 +43,7 @@ function NavBar() {
             src={logo}
             alt="Logo"
             width={150}
-            height={35}
+            height={25}
             className="object-fill"
           />
         </Navbar.Brand>

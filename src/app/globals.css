@@ -83,7 +83,6 @@ nav.navbar {
   top: 0;
   z-index: 9999;
   transition:  0.32s ease-in-out;
-  color: var(--foreground2) !important;
 }
 nav.navbar.scrolled {
   padding: 0px 0;
@@ -99,7 +98,7 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   padding: 0 0px;
   font-size: 18px;
   opacity: 0.75;
-  color: var(--foreground2) !important;
+
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
@@ -259,8 +258,8 @@ nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
 .skill {
   padding: 0 0 40px 0;
   position: relative;
-  background-image: url('./assets/images/banner-bg.png');
-  background-position: center;
+  background-image: url('./assets/images/422326-hd-universe-wallpaper-1920x1080-for-hd.jpg');
+  background-position: unset;
   background-size: auto;
   background-repeat: no-repeat;
 }
@@ -316,8 +315,8 @@ nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
   margin-top: 0;
   padding: 140px 0 100px 0;
   background-image: url('./assets/images/banner-bg.png');
-  background-position: top center;
-  background-size: cover;
+  background-position: top left;
+  background-size: auto;
   background-repeat: no-repeat;
   
 }

@@ -2,7 +2,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
-import logo from '@/app/assets/images/vecteezy_abstract-tech-logo-design-vector-illustration_19511172.svg';
+import logo from '@/app/assets/images/OmerohmLogo.svg';
 
 function Footer() {
   return (
@@ -15,10 +15,10 @@ function Footer() {
               alt="Logo"
               width={120}
               height={40}
-              className="footer-logo"
+              className="footer-logo flex content-center"
             />
           </Col>
-          <Col sm={6} className="text-center text-sm-end">
+          <Col sm={6} className="text-center text-sm-end content-center">
             <div className="social-icon footer-social">
               <a
                 href="https://linkedin.com"

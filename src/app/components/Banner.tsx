@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import Image from 'next/image';
-import headerImg from '../assets/images/header-img.svg';
+import headerImg from '../assets/images/undraw_in-the-zone_07y7.svg';
 
 export default function Banner() {
   const toRotate = [
