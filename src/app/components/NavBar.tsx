@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function NavBar() {
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,7 +37,12 @@ function NavBar() {
   };
 
   return (
-    <Navbar expand="lg" className={scrolled ? 'scrolled' : ''}>
+    <Navbar
+      expand="lg"
+      expanded={expanded}
+      onToggle={next => setExpanded(next)}
+      className={scrolled ? 'scrolled' : ''}
+    >
       <Container>
         <Navbar.Brand href="#home" className="flex">
           <Image
@@ -48,7 +54,14 @@ function NavBar() {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse
+          id="basic-navbar-nav"
+          className={
+            expanded
+              ? 'bg-black text-white absolute w-full left-0 top-14 z-50 py-4'
+              : ''
+          }
+        >
           <Nav className="me-auto">
             <Nav.Link
               href="#home"
@@ -79,13 +92,13 @@ function NavBar() {
             </Nav.Link>
           </Nav>
           <span className="navbar-text svg">
-            <a href="#">
+            <a href="#" aria-label="LinkedIn">
               <Image src={navIcon1} alt="LinkedIn" width={24} height={24} />
             </a>
-            <a href="#">
+            <a href="#" aria-label="Facebook">
               <Image src={navIcon2} alt="Facebook" width={24} height={24} />
             </a>
-            <a href="#">
+            <a href="#" aria-label="Instagram">
               <Image src={navIcon3} alt="Instagram" width={24} height={24} />
             </a>
             <Button className="vvd">

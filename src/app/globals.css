@@ -84,6 +84,11 @@ nav.navbar {
   z-index: 9999;
   transition:  0.32s ease-in-out;
 }
+
+/* Navbar mobile collapse styling is applied via utility classes in the
+   NavBar component (controlled `expanded` state). This keeps the collapse
+   styling immediate (no JS/CSS transition delays) and easier to maintain. */
+
 nav.navbar.scrolled {
   padding: 0px 0;
   background-color: var(--background2);
@@ -261,7 +266,7 @@ nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
   background-image: url('./assets/images/422326-hd-universe-wallpaper-1920x1080-for-hd.jpg');
   background-position: unset;
   background-size: auto;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
 }
 
 .skill-bx {
@@ -317,7 +322,7 @@ nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
   background-image: url('./assets/images/banner-bg.png');
   background-position: top left;
   background-size: auto;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   
 }
 .banner .tagline {
