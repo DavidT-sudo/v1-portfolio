@@ -9,13 +9,17 @@ function Footer() {
     <footer className="footer">
       <Container>
         <Row className="align-items-center">
-          <Col sm={6}>
+          <Col
+            xs={12}
+            sm={6}
+            className="text-center text-sm-start mb-4 mb-sm-0"
+          >
             <Image
               src={logo}
               alt="Logo"
               width={120}
               height={40}
-              className="footer-logo flex content-center"
+              className="footer-logo"
             />
           </Col>
           <Col sm={6} className="text-center text-sm-end content-center">

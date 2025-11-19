@@ -399,6 +399,13 @@ nav.navbar .navbar-nav .nav-link.navbar-Link:hover {
 
 .footer-logo {
   margin-bottom: 20px;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .footer-logo {
+    margin: 0 auto 20px auto;
+  }
 }
 
 .footer-social {

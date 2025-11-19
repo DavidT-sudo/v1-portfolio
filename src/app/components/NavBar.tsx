@@ -43,7 +43,7 @@ function NavBar() {
       onToggle={next => setExpanded(next)}
       className={scrolled ? 'scrolled' : ''}
     >
-      <Container>
+      <Container className="d-flex justify-content-center d-lg-block">
         <Navbar.Brand href="#home" className="flex">
           <Image
             src={logo}
