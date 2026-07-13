@@ -1,23 +1,23 @@
-'useClient';
 import NavBar from './components/NavBar';
-import Banner from './components/Banner';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Stack from './components/Stack';
+import ExperienceLog from './components/ExperienceLog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-function App() {
+export default function Home() {
   return (
-    <div className="App">
+    <div className="grid-backdrop min-h-svh">
       <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <Stack />
+        <ExperienceLog />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );
 }
-
-export default App;

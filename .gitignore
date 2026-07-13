@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local agent handoff / planning notes (not for the public repo)
+/IMPLEMENTATION_PLAN.md
+/.agent-notes/
+/.claude/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,41 +1,25 @@
-import type { ElementType } from 'react';
 import { stackGroups, type StackGroup } from '../lib/data';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import BoltIcon from '@mui/icons-material/Bolt';
-import CloudIcon from '@mui/icons-material/Cloud';
-import CodeIcon from '@mui/icons-material/Code';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
-import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
-import SettingsRemoteIcon from '@mui/icons-material/SettingsRemote';
-import StorageIcon from '@mui/icons-material/Storage';
-import TerminalIcon from '@mui/icons-material/Terminal';
+import { FallbackTechIcon, techIcons } from '../lib/icons';
 import Reveal from './Reveal';
 import SectionHeading from './SectionHeading';
 
 const accentText = {
   ohm: 'text-ohm',
   signal: 'text-signal',
+  copper: 'text-copper',
 } as const;
 
 const accentHover = {
   ohm: 'hover:border-ohm/70 hover:text-porcelain',
   signal: 'hover:border-signal/70 hover:text-porcelain',
+  copper: 'hover:border-copper/70 hover:text-porcelain',
 } as const;
 
-const skillIconMap: Record<string, ElementType> = {
-  Python: CodeIcon,
-  Django: TerminalIcon,
-  Docker: CloudIcon,
-  PostgreSQL: StorageIcon,
-  Supabase: CloudIcon,
-  'Industrial Instrumentation': PrecisionManufacturingIcon,
-  'PLC / SCADA Automation': SettingsRemoteIcon,
-  React: AutoAwesomeIcon,
-  'Next.js': BoltIcon,
-  Flutter: MobileFriendlyIcon,
-  'Tailwind CSS': DesignServicesIcon,
-};
+const iconHover = {
+  ohm: 'group-hover/skill:text-ohm',
+  signal: 'group-hover/skill:text-signal',
+  copper: 'group-hover/skill:text-copper',
+} as const;
 
 function StackPanel({ group }: { group: StackGroup }) {
   return (
@@ -53,24 +37,18 @@ function StackPanel({ group }: { group: StackGroup }) {
       <p className="mt-2 text-sm text-sage-400">{group.blurb}</p>
 
       <ul className="mt-6 flex flex-wrap gap-2.5">
-        {group.skills.map((skill, i) => {
-          const Icon = skillIconMap[skill] ?? CodeIcon;
-
+        {group.skills.map((skill) => {
+          const Icon = techIcons[skill] ?? FallbackTechIcon;
           return (
             <li
               key={skill}
-              className={`cursor-default border border-line bg-graphite-800 px-3 py-2 font-mono text-xs text-sage-300 transition-all duration-200 hover:-translate-y-0.5 ${accentHover[group.accent]}`}
+              className={`group/skill flex cursor-default items-center gap-2.5 border border-line bg-graphite-800 px-3 py-2 font-mono text-xs text-sage-300 transition-all duration-200 hover:-translate-y-0.5 ${accentHover[group.accent]}`}
             >
-              <span
-                className={`mr-2 text-2xs ${accentText[group.accent]}`}
-                aria-hidden
-              >
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Icon className="h-4 w-4 text-sage-400" aria-hidden="true" />
-                <span>{skill}</span>
-              </span>
+              <Icon
+                className={`h-4 w-4 shrink-0 text-sage-400 transition-colors duration-200 ${iconHover[group.accent]}`}
+                aria-hidden="true"
+              />
+              <span>{skill}</span>
             </li>
           );
         })}

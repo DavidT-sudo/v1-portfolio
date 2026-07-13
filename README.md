@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OhmerOhm Labs — Portfolio
 
-## Getting Started
+Engineering portfolio of **Thuto Tlhobogang** — full-stack software engineer and mechatronics / industrial instrumentation engineer. Built on the OhmerOhm Labs brand identity system: green-tinted graphite surfaces, Ohm Green / Volt Lime accents, Space Grotesk + Inter + JetBrains Mono, terminal-style hero, and spec-sheet UI details.
 
-First, run the development server:
+## Stack
+
+- [Next.js 15](https://nextjs.org) (App Router) + React 19
+- [Tailwind CSS v4](https://tailwindcss.com) with brand `@theme` tokens
+- Space Grotesk / Inter / JetBrains Mono via `next/font`
+- Server action contact form (WhatsApp click-to-chat + email)
+- Vercel Analytics
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in your contact channels
+npm run dev     # dev server (Turbopack)
+npm run build   # production build
+npm run lint    # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contact privacy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The email address and WhatsApp number are **not** in the page source — bots can't scrape them. They live in env vars (`CONTACT_EMAIL`, `WHATSAPP_NUMBER`) and are only used server-side by the contact form's server action, which builds a `wa.me` chat link or sends/opens an email. Optional `RESEND_API_KEY` enables true server-side email delivery. Set the same vars in your Vercel project settings when deploying.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure
 
-## Learn More
+```
+src/app/
+├── globals.css          # brand design tokens (@theme) + primitives
+├── layout.tsx           # fonts, metadata
+├── page.tsx             # section assembly
+├── icon.png             # favicon (brand mark)
+├── lib/data.ts          # all site copy (projects, stack, experience)
+├── actions/contact.ts   # server action — env-hidden WhatsApp/email channels
+└── components/          # NavBar, Hero, Terminal, Projects, Stack,
+                         # ExperienceLog, Contact, ContactForm, Footer,
+                         # Reveal, SectionHeading
+public/brand/mark.png    # OhmerOhm Labs mark (Ω-ring + leaf)
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) for the full token reference and design principles.
