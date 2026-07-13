@@ -1,33 +1,47 @@
-import { Col } from 'react-bootstrap';
-import Image, { StaticImageData } from 'next/image';
+import { BoxArrowUpRight, Briefcase } from 'react-bootstrap-icons';
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   name: string;
   description: string;
-  imgUrl: StaticImageData | string;
+  tags: string[];
+  href?: string;
+  linkLabel?: string;
 }
 
 export const ProjectCard = ({
   name,
   description,
-  imgUrl,
+  tags,
+  href,
+  linkLabel = 'View project',
 }: ProjectCardProps) => {
   return (
-    <Col size={12} sm={6} md={4}>
-      <div className="proj-imgbx">
-        <Image
-          src={imgUrl}
-          alt={`${name} project thumbnail`}
-          width={500}
-          height={400}
-          style={{ objectFit: 'cover' }}
-          priority={false}
-        />
-        <div className="proj-txtx">
-          <h4>{name}</h4>
-          <span>{description}</span>
-        </div>
-      </div>
-    </Col>
+    <div className="project-card">
+      <h4>{name}</h4>
+      <p>{description}</p>
+      <ul className="project-tag-list">
+        {tags.map(tag => (
+          <li key={tag} className="project-tag">
+            {tag}
+          </li>
+        ))}
+      </ul>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-link"
+        >
+          {linkLabel}
+          <BoxArrowUpRight size={14} />
+        </a>
+      ) : (
+        <span className="project-case-study">
+          <Briefcase size={14} />
+          Case study
+        </span>
+      )}
+    </div>
   );
 };

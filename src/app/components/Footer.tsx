@@ -1,77 +1,63 @@
 'use client';
-import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Github, Linkedin, CodeSquare, Envelope } from 'react-bootstrap-icons';
 import logo from '@/app/assets/images/OmerohmLogo.svg';
+
+const socialLinks = [
+  { label: 'GitHub', href: 'https://github.com/DavidT-sudo', icon: <Github size={18} /> },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/thuto-tlhobogang-334a2b10a',
+    icon: <Linkedin size={18} />,
+  },
+  { label: 'CodePen', href: 'https://codepen.io/Thuto-Tlhobogang', icon: <CodeSquare size={18} /> },
+  { label: 'Email', href: 'mailto:thutotlhobogang@gmail.com', icon: <Envelope size={18} /> },
+];
 
 function Footer() {
   return (
     <footer className="footer">
-      <Container>
-        <Row className="align-items-center">
-          <Col
-            xs={12}
-            sm={6}
-            className="text-center text-sm-start mb-4 mb-sm-0"
-          >
-            <Image
-              src={logo}
-              alt="Logo"
-              width={120}
-              height={40}
-              className="footer-logo"
-            />
-          </Col>
-          <Col sm={6} className="text-center text-sm-end content-center">
-            <div className="social-icon footer-social">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/images/nav-icon1.svg"
-                  alt="LinkedIn"
-                  width={24}
-                  height={24}
-                />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/images/nav-icon2.svg"
-                  alt="Facebook"
-                  width={24}
-                  height={24}
-                />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/images/nav-icon3.svg"
-                  alt="Instagram"
-                  width={24}
-                  height={24}
-                />
-              </a>
+      <div className="container mx-auto px-6 xl:px-12">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <Image
+            src={logo}
+            alt="Logo"
+            width={120}
+            height={40}
+            className="footer-logo"
+          />
+          <div className="flex flex-col items-center sm:items-end gap-4">
+            <div className="footer-social">
+              {socialLinks.map(link => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={
+                    link.href.startsWith('http')
+                      ? 'noopener noreferrer'
+                      : undefined
+                  }
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
             <div className="footer-links">
               <Link href="#home">Home</Link>
               <Link href="#skills">Skills</Link>
               <Link href="#projects">Projects</Link>
+              <Link href="#contact">Contact</Link>
             </div>
             <p className="copyright">
-              Copyright © {new Date().getFullYear()}. All Rights Reserved
+              Copyright &copy; {new Date().getFullYear()}. All Rights
+              Reserved
             </p>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

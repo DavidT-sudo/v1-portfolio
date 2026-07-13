@@ -1,92 +1,66 @@
 'use client';
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
-import Carousel from 'react-multi-carousel';
-import Image from 'next/image';
-import 'react-multi-carousel/lib/styles.css';
+import { CodeSlash, Stack, Tools, BarChart } from 'react-bootstrap-icons';
 
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+interface SkillCategory {
+  title: string;
+  icon: React.ReactNode;
+  skills: string[];
+}
+
+const categories: SkillCategory[] = [
+  {
+    title: 'Languages',
+    icon: <CodeSlash size={22} />,
+    skills: ['JavaScript/TypeScript', 'Python', 'Java', 'C/C++', 'SQL (Postgres)', 'HTML/CSS'],
   },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+  {
+    title: 'Frameworks',
+    icon: <Stack size={22} />,
+    skills: ['React / Next.js', 'Node.js', 'Django', 'Flask', 'MongoDB', 'WordPress'],
   },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
+  {
+    title: 'Developer Tools',
+    icon: <Tools size={22} />,
+    skills: ['Git', 'Docker', 'Linux', 'Nginx', 'Azure', 'BASH', 'Vim'],
   },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
+  {
+    title: 'Libraries',
+    icon: <BarChart size={22} />,
+    skills: ['Pandas', 'NumPy', 'Matplotlib', 'D3.js', 'scikit-learn'],
   },
-};
+];
 
 export const Skills = () => {
   return (
     <section className="skill" id="skills">
-      <Container>
-        <Row>
-          <Col>
-            <div className="skill-bx">
-              <h2>Technical Skills</h2>
-              <p>
-                Experienced full-stack developer with expertise in modern web
-                technologies and industrial automation. Proficient in both
-                front-end and back-end development, with a strong foundation in
-                systems engineering. Skilled in developing scalable
-                applications, implementing CI/CD pipelines, and utilizing cloud
-                technologies.
-              </p>
-              <Carousel
-                responsive={responsive}
-                infinite={true}
-                className="skill-slider"
-              >
-                <div className="item">
-                  <Image
-                    src="/images/meter1.svg"
-                    alt="Front-End Skills"
-                    width={150}
-                    height={150}
-                  />
-                  <h5>Front-End</h5>
-                </div>
-                <div className="item">
-                  <Image
-                    src="/images/meter2.svg"
-                    alt="Back-end Skills"
-                    width={150}
-                    height={150}
-                  />
-                  <h5>Back-end</h5>
-                </div>
-                <div className="item">
-                  <Image
-                    src="/images/meter3.svg"
-                    alt="DevOps Skills"
-                    width={150}
-                    height={150}
-                  />
-                  <h5>DevOps</h5>
-                </div>
-                <div className="item">
-                  <Image
-                    src="/images/meter1.svg"
-                    alt="Database Skills"
-                    width={150}
-                    height={150}
-                  />
-                  <h5>Database</h5>
-                </div>
-              </Carousel>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <div className="container mx-auto px-6 xl:px-12">
+        <div className="skill-bx">
+          <h2>Technical Skills</h2>
+          <p>
+            Experienced full-stack developer with expertise in modern web
+            technologies and industrial automation. Proficient in both
+            front-end and back-end development, with a strong foundation in
+            systems engineering. Skilled in developing scalable applications,
+            implementing CI/CD pipelines, and utilizing cloud technologies.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {categories.map(category => (
+              <div key={category.title} className="skill-category">
+                <div className="skill-category-icon">{category.icon}</div>
+                <h5>{category.title}</h5>
+                <ul className="skill-tag-list">
+                  {category.skills.map(skill => (
+                    <li key={skill} className="skill-tag">
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

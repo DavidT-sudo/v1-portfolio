@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import Image from 'next/image';
 import headerImg from '../assets/images/undraw_in-the-zone_07y7.svg';
@@ -49,27 +48,28 @@ export default function Banner() {
 
   return (
     <section className="banner" id="home">
-      <Container>
-        <Row className="items-center">
-          <Col xs={12} md={6} xl={7}>
+      <div className="container mx-auto px-6 xl:px-12">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-8">
+          <div className="w-full md:w-7/12">
             <span className="tagline">Welcome to my Portfolio</span>
             <h2>
-              Hi, I&apos;m David T.
+              Hi, I&apos;m Thuto Tlhobogang
               <br />I am a <span className="wrap">{text}</span>
             </h2>
             <p>
-              A passionate Software Engineer with a background in Mechatronics
-              and Industrial Instrumentation. I combine engineering principles
-              with modern web technologies to build efficient, scalable
-              applications. Experienced in full-stack development, systems
-              engineering, and industrial automation.
+              A Mechatronics &amp; Industrial Instrumentation engineer
+              (B.Eng., BIUST) turned full-stack developer, trained through
+              FreeCodeCamp and The Odin Project. I combine control-systems
+              engineering with modern web technologies&mdash;currently
+              building React/Django products at Africort Investments, after
+              shipping SCADA and research-data systems in the field.
             </p>
-            <button onClick={() => console.log('Connect')}>
+            <a href="#contact" className="banner-cta">
               Let&apos;s Connect
               <ArrowRightCircle size={25} />
-            </button>
-          </Col>
-          <Col xs={12} md={6} xl={5}>
+            </a>
+          </div>
+          <div className="w-full md:w-5/12">
             <Image
               src={headerImg}
               alt="Header Img"
@@ -77,9 +77,9 @@ export default function Banner() {
               height={500}
               priority
             />
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
