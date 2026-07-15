@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 
 type Line =
   | { kind: 'cmd'; text: string }
@@ -28,6 +28,18 @@ const toneClass = {
   sage: 'text-sage-300',
 } as const;
 
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
+/* prefers-reduced-motion is external state, so it is read through a
+   store subscription rather than written into state from an effect. */
+function subscribeMotion(onChange: () => void) {
+  const mq = window.matchMedia(REDUCED_MOTION_QUERY);
+  mq.addEventListener('change', onChange);
+  return () => mq.removeEventListener('change', onChange);
+}
+const getMotionSnapshot = () => window.matchMedia(REDUCED_MOTION_QUERY).matches;
+const getMotionServerSnapshot = () => false;
+
 /**
  * Hero terminal: types each command character by character,
  * then prints its output lines. Runs once, respects
@@ -39,14 +51,16 @@ export default function Terminal() {
     line: 0,
     chars: 0,
   });
-  const done = progress.line >= SCRIPT.length;
+  const reducedMotion = useSyncExternalStore(
+    subscribeMotion,
+    getMotionSnapshot,
+    getMotionServerSnapshot
+  );
+  // Reduced motion skips the animation and shows the full transcript.
+  const done = reducedMotion || progress.line >= SCRIPT.length;
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setProgress({ line: SCRIPT.length, chars: 0 });
-      return;
-    }
     if (done) return;
 
     const current = SCRIPT[progress.line];
@@ -71,14 +85,16 @@ export default function Terminal() {
     return () => clearTimeout(timer.current);
   }, [progress, done]);
 
-  const visible = SCRIPT.slice(0, progress.line + 1)
-    .map((line, i) => {
-      if (i < progress.line) return line;
-      if (line.kind === 'cmd')
-        return { ...line, text: line.text.slice(0, progress.chars) };
-      return null; // output lines appear whole, never partially
-    })
-    .filter(Boolean) as Line[];
+  const visible = reducedMotion
+    ? SCRIPT
+    : (SCRIPT.slice(0, progress.line + 1)
+        .map((line, i) => {
+          if (i < progress.line) return line;
+          if (line.kind === 'cmd')
+            return { ...line, text: line.text.slice(0, progress.chars) };
+          return null; // output lines appear whole, never partially
+        })
+        .filter(Boolean) as Line[]);
 
   return (
     <div
