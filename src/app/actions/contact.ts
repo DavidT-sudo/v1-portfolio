@@ -104,7 +104,7 @@ export async function submitContact(
   }
 
   // 4) BUILD / SEND — only reached once all checks pass.
-  const body = `New inquiry via ohmerohm portfolio\nFrom: ${name}\nReply to: ${replyTo}\n\n${message}`;
+  const body = `New inquiry via omerohm portfolio\nFrom: ${name}\nReply to: ${replyTo}\n\n${message}`;
 
   if (channel === 'whatsapp') {
     const number = process.env.WHATSAPP_NUMBER?.replace(/\D/g, '');
