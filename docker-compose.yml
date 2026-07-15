@@ -1,0 +1,58 @@
+# ============================================================
+# OmerOhm LABS portfolio — production deployment
+#
+#   docker compose up -d --build
+#
+# Runtime secrets are read from .env.local (gitignored) and are
+# never baked into the image. See .env.example for the keys.
+# ============================================================
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Public site key — inlined at build time by Next.js.
+        # Compose substitutes this from your shell or a `.env` file.
+        NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${NEXT_PUBLIC_TURNSTILE_SITE_KEY:-}
+    image: omerohm-portfolio:latest
+    container_name: omerohm-portfolio
+    restart: unless-stopped
+
+    # Runtime secrets: WHATSAPP_NUMBER, CONTACT_EMAIL,
+    # RESEND_API_KEY, RESEND_FROM, TURNSTILE_SECRET_KEY
+    env_file:
+      - .env.local
+
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      HOSTNAME: 0.0.0.0
+
+    # Bind to loopback by default — front it with a TLS reverse
+    # proxy (Nginx/Caddy/Traefik) in production. Set HOST_PORT to
+    # override, or use 0.0.0.0:3000 to expose directly.
+    ports:
+      - '${HOST_BIND:-127.0.0.1}:${HOST_PORT:-3000}:3000'
+
+    healthcheck:
+      test:
+        ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://127.0.0.1:3000/']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+    # Hardening: the app writes nothing to disk at runtime.
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'

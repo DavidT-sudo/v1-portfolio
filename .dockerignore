@@ -1,0 +1,33 @@
+# Build context exclusions — keep the image lean and secrets out.
+
+node_modules
+.next
+out
+build
+coverage
+
+.git
+.gitignore
+
+# Secrets — must never enter the build context.
+.env
+.env.*
+!.env.example
+
+# Local tooling / notes
+.vscode
+.idea
+IMPLEMENTATION_PLAN.md
+.agent-notes
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+.DS_Store
+.vercel
+
+Dockerfile
+docker-compose*.yml
+README.md
+DESIGN_SYSTEM.md
