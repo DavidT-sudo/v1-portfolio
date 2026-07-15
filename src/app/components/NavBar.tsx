@@ -10,7 +10,7 @@ function Wordmark() {
     <a
       href="#top"
       className="flex items-center gap-2.5"
-      aria-label="OhmerOhm Labs — back to top"
+      aria-label="OmerOhm LABS — back to top"
     >
       <Image
         src="/brand/mark.png"
@@ -21,7 +21,7 @@ function Wordmark() {
         className="h-8 w-8"
       />
       <span className="font-display text-sm font-bold tracking-[0.12em]">
-        <span className="text-porcelain">OhmerOhm</span>
+        <span className="text-porcelain">OmerOhm</span>
         <span className="ml-1.5 text-ohm">LABS</span>
       </span>
       <span className="led ml-1 text-volt" aria-hidden />
@@ -56,7 +56,7 @@ export default function NavBar() {
 
         {/* Desktop links */}
         <ul className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
+          {navLinks.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
@@ -91,13 +91,13 @@ export default function NavBar() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Close menu' : 'Open menu'}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen(v => !v)}
           >
-          <span
-            className={`h-px w-5 bg-porcelain transition-transform duration-200 ${
-              open ? 'translate-y-[3.5px] rotate-45' : ''
-            }`}
-          />
+            <span
+              className={`h-px w-5 bg-porcelain transition-transform duration-200 ${
+                open ? 'translate-y-[3.5px] rotate-45' : ''
+              }`}
+            />
             <span
               className={`h-px w-5 bg-porcelain transition-transform duration-200 ${
                 open ? '-translate-y-[3.5px] -rotate-45' : ''
@@ -118,9 +118,7 @@ export default function NavBar() {
                   onClick={() => setOpen(false)}
                   className="block py-3 font-mono text-sm tracking-[0.15em] text-sage-300 transition-colors hover:text-volt"
                 >
-                  <span className="mr-3 text-2xs text-sage-500">
-                    0{i + 1}
-                  </span>
+                  <span className="mr-3 text-2xs text-sage-500">0{i + 1}</span>
                   ./{link.label}
                 </a>
               </li>

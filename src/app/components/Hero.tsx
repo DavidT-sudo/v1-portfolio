@@ -10,7 +10,7 @@ export default function Hero() {
       {/* -- Left: identity ------------------------------------ */}
       <div className="animate-fade-up">
         <p className="font-mono text-2xs tracking-[0.3em] text-ohm">
-          {'//'} OHMEROHM LABS — TECHWORKS DIVISION
+          {'//'} OMEROHM LABS — TECHWORKS DIVISION
         </p>
 
         <h1 className="mt-6 font-display text-4xl font-bold leading-tight tracking-tight text-porcelain sm:text-5xl lg:text-6xl">

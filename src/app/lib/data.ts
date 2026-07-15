@@ -1,5 +1,5 @@
 /* ============================================================
-   OHMEROHM LABS — site content
+   OMEROHM LABS — site content
    Enriched from an audit of the GitHub footprint (personal +
    10 orgs). Components stay purely presentational.
    NOTE: no direct contact details here — email and WhatsApp
@@ -9,7 +9,7 @@
 
 export const identity = {
   name: 'Thuto Tlhobogang',
-  studio: 'OhmerOhm Labs',
+  studio: 'OmerOhm LABS',
   tagline: 'Engineering the shape of sound, light and signal.',
   location: 'Gaborone, Botswana',
   github: 'https://github.com/DavidT-sudo',

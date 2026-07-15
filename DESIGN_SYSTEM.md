@@ -1,10 +1,10 @@
-# OhmerOhm Labs — Design System
+# OmerOhm LABS — Design System
 
-This documents the design system actually implemented in this repo, derived from the **OhmerOhm Labs Brand Identity System v1.0** ("circuitry first, foliage second"). Tokens live in [`src/app/globals.css`](src/app/globals.css) as Tailwind CSS v4 `@theme` variables; components are Next.js (App Router) + React 19.
+This documents the design system actually implemented in this repo, derived from the **OmerOhm LABS Brand Identity System v1.0** ("circuitry first, foliage second"). Tokens live in [`src/app/globals.css`](src/app/globals.css) as Tailwind CSS v4 `@theme` variables; components are Next.js (App Router) + React 19.
 
 ## Identity
 
-The site reads as the Techworks division of an engineering studio: part terminal, part instrument panel, part spec sheet — rendered in the brand's green-tinted graphite and leaf-derived greens. The mark (Ω-ring enclosing a leaf/omer, `public/brand/mark.png`) is used as supplied; the name is standardized as **OhmerOhm** per the brand guide.
+The site reads as the Techworks division of an engineering studio: part terminal, part instrument panel, part spec sheet — rendered in the brand's green-tinted graphite and leaf-derived greens. The mark (Ω-ring enclosing a leaf/omer, `public/brand/mark.png`) is used as supplied; the name is standardized as **OmerOhm** per the brand guide.
 
 ## Color tokens
 

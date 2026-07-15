@@ -15,7 +15,7 @@ export default function Footer() {
           />
           <div>
             <p className="font-display text-xs font-bold tracking-[0.12em]">
-              <span className="text-porcelain">OhmerOhm</span>
+              <span className="text-porcelain">OmerOhm</span>
               <span className="ml-1 text-ohm">LABS</span>
             </p>
             <p className="mt-1 font-mono text-2xs tracking-wider text-sage-500">
@@ -27,7 +27,7 @@ export default function Footer() {
 
         <nav aria-label="Footer">
           <ul className="flex items-center gap-6">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <li key={link.href}>
                 <a
                   href={link.href}

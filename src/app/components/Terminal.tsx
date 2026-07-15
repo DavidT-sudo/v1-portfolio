@@ -53,19 +53,19 @@ export default function Terminal() {
     if (current.kind === 'cmd') {
       if (progress.chars < current.text.length) {
         timer.current = setTimeout(
-          () => setProgress((p) => ({ ...p, chars: p.chars + 1 })),
-          TYPE_SPEED,
+          () => setProgress(p => ({ ...p, chars: p.chars + 1 })),
+          TYPE_SPEED
         );
       } else {
         timer.current = setTimeout(
-          () => setProgress((p) => ({ line: p.line + 1, chars: 0 })),
-          CMD_PAUSE,
+          () => setProgress(p => ({ line: p.line + 1, chars: 0 })),
+          CMD_PAUSE
         );
       }
     } else {
       timer.current = setTimeout(
-        () => setProgress((p) => ({ line: p.line + 1, chars: 0 })),
-        OUT_DELAY,
+        () => setProgress(p => ({ line: p.line + 1, chars: 0 })),
+        OUT_DELAY
       );
     }
     return () => clearTimeout(timer.current);
@@ -92,7 +92,7 @@ export default function Terminal() {
         <span className="h-2.5 w-2.5 rounded-full bg-copper" aria-hidden />
         <span className="h-2.5 w-2.5 rounded-full bg-ohm" aria-hidden />
         <span className="ml-3 text-2xs tracking-widest text-sage-500">
-          thuto@ohmerohm-labs:~
+          thuto@omerohm-labs:~
         </span>
       </div>
 

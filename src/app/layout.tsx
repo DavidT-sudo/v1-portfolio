@@ -22,9 +22,9 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Thuto Tlhobogang — OhmerOhm Labs',
+  title: 'Thuto Tlhobogang — OmerOhm LABS',
   description:
-    'OhmerOhm Labs — engineering portfolio of Thuto Tlhobogang. Full-stack software engineering (Django, Next.js, Flutter), industrial automation, mechatronics, and instrumentation systems built in Botswana.',
+    'OmerOhm LABS — engineering portfolio of Thuto Tlhobogang. Full-stack software engineering (Django, Next.js, Flutter), industrial automation, mechatronics, and instrumentation systems built in Botswana.',
 };
 
 // Runs before paint to apply the stored/system theme with no flash.
