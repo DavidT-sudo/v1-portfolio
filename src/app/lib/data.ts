@@ -19,14 +19,37 @@ export const identity = {
     'Engineer operating across the full stack — from PLC ladder logic and SCADA floors to Django backends, Flutter apps, and CI/CD pipelines. I build systems that replace paper, spreadsheets, and downtime with software.',
 };
 
+/**
+ * Source repository for a project. Most repos are private, so a URL is only
+ * modelled for public ones — private repos carry no name or org in the
+ * shipped bundle and render as a locked chip instead of a dead link.
+ * Flip `visibility` to 'public' (and add the url) to light up the link.
+ */
+export type RepoLink =
+  | { visibility: 'private' }
+  | { visibility: 'public'; url: string };
+
 export type Project = {
   id: string;
   title: string;
-  domain: 'BACKEND' | 'MOBILE' | 'PLATFORM' | 'E-COMMERCE' | 'FINTECH' | 'AI';
+  domain:
+    | 'BACKEND'
+    | 'MOBILE'
+    | 'PLATFORM'
+    | 'E-COMMERCE'
+    | 'FINTECH'
+    | 'AI'
+    | 'WEBSITE';
   status: 'IN PRODUCTION' | 'DEPLOYED' | 'MVP' | 'IN DEVELOPMENT';
   statusTone: 'live' | 'copper' | 'signal';
   description: string;
   stack: string[];
+  repo: RepoLink;
+  /**
+   * Public FRONTEND url only. Never list API, admin (pgAdmin, Dozzle,
+   * Coolify), mail (Mailpit) or object-storage hosts here.
+   */
+  liveUrl?: string;
 };
 
 export const projects: Project[] = [
@@ -37,41 +60,88 @@ export const projects: Project[] = [
     status: 'IN PRODUCTION',
     statusTone: 'live',
     description:
-      'Computerized maintenance management system for a government printing workshop — job-ticket tracking and digitized asset records that cut maintenance turnaround by over 1.5×. Security-hardened with brute-force lockout, rate limiting, and CI security scanning (bandit + safety).',
+      'Uptime CMMS — a computerized maintenance management system for a government printing workshop. Job-ticket tracking and digitized asset records cut maintenance turnaround by over 1.5×, with brute-force lockout, rate limiting, and CI security scanning (bandit + safety).',
     stack: ['Django', 'PostgreSQL', 'Docker', 'Python', 'Security Hardening'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://gppsms.omerohmlabs.com',
   },
   {
     id: 'P-02',
+    title: 'Government Bookstore',
+    domain: 'E-COMMERCE',
+    status: 'DEPLOYED',
+    statusTone: 'live',
+    description:
+      'The digital e-commerce and inventory platform for Botswana government publications — acts, gazettes, statistical reports, and parliamentary papers, as downloads or printed copies. A React storefront on an Express API, with its own documentation wiki.',
+    stack: ['React', 'Node.js', 'Express', 'PostgreSQL', 'Docker'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://govbookstore.omerohmlabs.com',
+  },
+  {
+    id: 'P-03',
     title: 'TutorLink BW — ThubleAi',
     domain: 'PLATFORM',
     status: 'MVP',
     statusTone: 'copper',
     description:
-      'Online tutoring platform for the Botswana curriculum (BGCSE, IGCSE, Cambridge). Connects students with tutors, handling enrollment, sessions, and assessments — built API-first with an OpenAPI-documented, fully tested backend.',
+      'Online tutoring platform for the Botswana curriculum (BGCSE, PSLE, IGCSE). Connects students with tutors, handling enrollment, sessions, and assessments — built API-first with an OpenAPI-documented, fully tested backend.',
     stack: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'REST / OpenAPI'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://tubleai.omerohmlabs.com',
   },
   {
-    id: 'P-03',
+    id: 'P-04',
     title: 'Fleet Management App',
     domain: 'MOBILE',
     status: 'DEPLOYED',
     statusTone: 'live',
     description:
-      'Cross-platform mobile app for fleet operations: driver assignment tracking, on-device document scanning, and automated permit-expiration alerts so no vehicle runs on expired paperwork.',
-    stack: ['Flutter', 'Dart', 'Supabase'],
-  },
-  {
-    id: 'P-04',
-    title: 'Government Bookstore E-commerce',
-    domain: 'E-COMMERCE',
-    status: 'IN DEVELOPMENT',
-    statusTone: 'signal',
-    description:
-      'Storefront for hosting and distributing government publications, built as a Turborepo monorepo with pnpm workspaces and an optimized Prisma schema driving catalog, inventory, and order flows.',
-    stack: ['Turborepo', 'Next.js', 'Prisma', 'TypeScript', 'pnpm'],
+      'Cross-platform fleet operations app: driver assignment tracking, document scanning, and automated permit-expiration alerts so no vehicle runs on expired paperwork. Built on Supabase with PowerSync for offline-capable sync.',
+    stack: ['Flutter', 'Dart', 'Supabase', 'PowerSync'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://app.omerohmlabs.com',
   },
   {
     id: 'P-05',
+    title: 'Abed Live',
+    domain: 'WEBSITE',
+    status: 'DEPLOYED',
+    statusTone: 'live',
+    description:
+      'Artist website for Abednico Wadingalo — contemporary gospel, Afro-jazz, praise and worship from Molepolole, Botswana. Implemented from a Claude Design mockup into a production Next.js app.',
+    stack: ['Next.js', 'TypeScript', 'Drizzle ORM', 'PostgreSQL'],
+    repo: {
+      visibility: 'public',
+      url: 'https://github.com/DavidT-sudo/AbedLive',
+    },
+    liveUrl: 'https://abedlive.omerohmlabs.com',
+  },
+  {
+    id: 'P-06',
+    title: 'TechieBoss',
+    domain: 'WEBSITE',
+    status: 'DEPLOYED',
+    statusTone: 'live',
+    description:
+      'Studio site for fast websites, custom web apps, and automations for individuals and small businesses.',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://techieboss.omerohmlabs.com',
+  },
+  {
+    id: 'P-07',
+    title: 'OmerOhm Labs',
+    domain: 'WEBSITE',
+    status: 'DEPLOYED',
+    statusTone: 'live',
+    description:
+      'The studio site — systems engineering, integration, and mechatronics consulting bridging industrial hardware and modern software for SMEs and industrial enterprises across the SADC region.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Drizzle ORM', 'PostgreSQL'],
+    repo: { visibility: 'private' },
+    liveUrl: 'https://omerohmlabs.com',
+  },
+  {
+    id: 'P-08',
     title: 'NxtGenPay',
     domain: 'FINTECH',
     status: 'IN DEVELOPMENT',
@@ -79,9 +149,10 @@ export const projects: Project[] = [
     description:
       'Mobile payments platform — a cross-platform Flutter front end with Supabase authentication and session management, laying the rails for a next-generation payment experience.',
     stack: ['Flutter', 'Dart', 'Supabase'],
+    repo: { visibility: 'private' },
   },
   {
-    id: 'P-06',
+    id: 'P-09',
     title: 'Gemini Tool-Use Agent',
     domain: 'AI',
     status: 'DEPLOYED',
@@ -89,6 +160,10 @@ export const projects: Project[] = [
     description:
       'An agentic AI coding assistant in Python: it plans over a function-calling loop with Google Gemini, then reads files, runs code, and writes changes through a controlled tool interface.',
     stack: ['Python', 'Google Gemini', 'LLM / AI Agents'],
+    repo: {
+      visibility: 'public',
+      url: 'https://github.com/DavidT-sudo/bootdev_ai-agent',
+    },
   },
 ];
 

@@ -5,6 +5,8 @@ import {
   SiDart,
   SiDjango,
   SiDocker,
+  SiDrizzle,
+  SiExpress,
   SiGit,
   SiGithubactions,
   SiGo,
@@ -24,7 +26,14 @@ import {
   SiTurborepo,
   SiTypescript,
 } from 'react-icons/si';
-import { TbApi, TbCpu, TbGauge, TbRobot, TbShieldLock } from 'react-icons/tb';
+import {
+  TbApi,
+  TbCpu,
+  TbGauge,
+  TbRefresh,
+  TbRobot,
+  TbShieldLock,
+} from 'react-icons/tb';
 
 /**
  * Maps a technology label to its official brand logo (Simple Icons)
@@ -47,6 +56,9 @@ export const techIcons: Record<string, IconType> = {
   'Node.js': SiNodedotjs,
   PostgreSQL: SiPostgresql,
   Prisma: SiPrisma,
+  'Drizzle ORM': SiDrizzle,
+  'Express': SiExpress,
+  PowerSync: TbRefresh,
   Supabase: SiSupabase,
   'REST APIs': TbApi,
   'REST / OpenAPI': SiOpenapiinitiative,
